@@ -2,3 +2,6 @@
 	path = ryancontentoblog/public
 	url = https://github.com/ryancontento/ryancontento.dev.git
 	branch = main
+[submodule "ryancontentoblog/themes/researcher"]
+	path = ryancontentoblog/themes/researcher
+	url = https://github.com/ojroques/hugo-researcher.git
