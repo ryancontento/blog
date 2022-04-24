@@ -1,0 +1,4 @@
+[submodule "ryancontentoblog/public"]
+	path = ryancontentoblog/public
+	url = https://github.com/ryancontento/ryancontento.dev.git
+	branch = main
