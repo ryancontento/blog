@@ -1,4 +1,24 @@
 baseURL = 'https://ryancontento.dev'
-languageCode = 'en-us'
 title = 'Ryan Contento Blog'
-theme = 'hugo-theme-hello-friend-ng'
+theme = "simple-blog"
+copyright = "© 2020 copyright text."
+paginate = 3
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+footnoteReturnLinkContents = "^"
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+
+[params]
+
