@@ -1,4 +1,4 @@
-baseURL = 'https://ryancontento.dev'
+baseURL = 'https://ryancontento.dev/posts'
 title = 'Ryan Contento Blog'
 theme = "simple-blog"
 copyright = "© 2020 copyright text."
