@@ -1,10 +1,9 @@
 ---
 title: "Blazor Component Lifecycle"
-date: 2022-07-04T22:52:30-04:00
+date: 2022-07-04T18:13:24-04:00
 draft: false
-toc: false
 categories: [Blazor, Development]
-tags: [.NET, Blazor, C#, Lifecycle]
+tags: [.NET, Blazor, C#, Component, Lifecycle]
 ---
 
 Blazor is a component based framework, and like all of these modern frameworks, every component has a lifecycle. They are rendered, they exist in the UI, and eventually are disposed. There are 7 main methods that handle the lifecycle of a Blazor/razor component, and one other that will need to be mentioned. These components are processed with a set of synchronous and asynchronous methods. All Blazor lifecycle methods are provided by the ComponentBase class. All components inherit from this class. For the methods other than the first one we will cover, the synchronous version is always called before the asynchronous one.
