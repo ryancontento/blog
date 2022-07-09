@@ -6,7 +6,7 @@ categories: [Blazor, Development]
 tags: [.NET, Blazor, C#, Component, Lifecycle]
 ---
 
-Blazor is a component based framework, and like all of these modern frameworks, every component has a lifecycle. They are rendered, they exist in the UI, and eventually are disposed. There are 7 main methods that handle the lifecycle of a Blazor/razor component, and one other that will need to be mentioned. These components are processed with a set of synchronous and asynchronous methods. All Blazor lifecycle methods are provided by the ComponentBase class. All components inherit from this class. For the methods other than the first one we will cover, the synchronous version is always called before the asynchronous one.
+Blazor is a component based framework, and like all of these modern frameworks, every component has a lifecycle. They are rendered, they exist in the UI, and eventually are disposed. There are 7 main methods that handle the lifecycle of a Blazor/razor component. These components are processed with a set of synchronous and asynchronous methods. All Blazor lifecycle methods are provided by the ComponentBase class, which all components inherit from. For the methods other than the first one we will cover, the synchronous version is always called before the asynchronous one.
 
 ## SetParametersAsync()
 
@@ -25,9 +25,9 @@ OnInitialized() and OnInitializedAsync() are the methods called following SetPar
 
 ## OnParametersSet{Async}()
 
-The OnParametersSet() or OnParametersSetAsync() methods are called following SetParametersAsync(). This method, unlike OnInitialized, will run each time the incoming parameters of a component change.
+The OnParametersSet() or OnParametersSetAsync() methods are called following SetParametersAsync(). This method, unlike OnInitialized(), will run each time the incoming parameters of a component change.
 
-OnParametersSet() will run and **then** calls OnParametersSetAsync(). It will then make a call to StateHasChanged() (more on that later).
+OnParametersSet() will run, **then** calls OnParametersSetAsync(). It will then make a call to StateHasChanged() (more on that later).
 
 ## OnAfterRender{Async}()
 
@@ -35,7 +35,7 @@ Again, as the name clearly suggests, these methods are called after a component 
 
 ## More on Async Calls
 
-When making an asynchronous call in Blazor multiple awaited calls will fire simultaneously. Lets look at a quick example.
+When making an asynchronous call in Blazor, multiple awaited calls will fire simultaneously. Lets look at a quick example.
 
 ```csharp
 List<string> _helloWorldList = new();
@@ -54,11 +54,9 @@ protected override async Task OnInitializedAsync()
 
 This example shows a list of strings with 3 items being added. If you were to watch this output, you will see that first “hello” will print, then 2 seconds later, both “ World” and “!” will print. It is understandable if you would have expected each await to complete before moving on to the next await, but that is not the case.
 
-This leads us nicely into the final method we will go over in this post. If we were to want the state of the component this example list is part of, we would need to call the StateHasChanged() method after each append to the list.
-
 ## StateHasChanged()
 
-The final method we need to mention is StateHasChanged(). This method will notify the render tree that the state of the component has changed. This method call is usually handled by the other lifecycle methods, but I have come across a handful of situations where an explicit call of StateHasChanged() was needed.
+The final lifecycle method we need to mention is StateHasChanged(). This method will notify the render tree that the state of the component has changed. This method call is usually handled by the other lifecycle methods, but I have come across a handful of situations where an explicit call of StateHasChanged() was needed.
 
 ## Bonus Method: Dispose()
 
@@ -68,4 +66,4 @@ In order to access this method, the component will need to implement the IDispos
 
 ## Final Thoughts
 
-This was far from a comprehensive breakdown of the component lifecycle, but I hope this helps clear up the basics. These life cycle methods are vital to effectively creating components that work flawlessly together. If you have any questions, comments, or requests for covering specifics, please feel free to reach out [here](<[https://ryancontento.dev/#contact](https://ryancontento.dev/#contact)>).
+This was far from a comprehensive breakdown of the component lifecycle, but I hope this helps clear up the basics. These lifecycle methods are vital to effectively creating components that work flawlessly together. If you have any questions, comments, or requests for covering specifics, please feel free to reach out [here](<[https://ryancontento.dev/#contact](https://ryancontento.dev/#contact)>).
