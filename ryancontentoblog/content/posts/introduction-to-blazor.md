@@ -36,6 +36,36 @@ WebAssembly is supported by the W3C just like JavaScript, and is here to stay. T
 
 Like most modern front-end web frameworks, Blazor is built around the concept of UI components. Components in Blazor are elements of UI, such as a pages, dialog boxes, or forms. If you have any experience with .NET MVC, you will instantly recognize a Blazor component (.razor page). That’s correct, just like in MVC, we are using razor pages. This means you have access to all of the power of Razor when building out your entire UI. For those uninitiated with razor, you may be familiar with its JavaScript cousin JSX. Instead of JavaScript, with razor we are writing HTML and C# in the same file. Before Blazor, this was only possible when done on the server, but now this can be done right in the clients browser.
 
+Here is a simple counter component which is also routable (see the @page directive at the top of the file):
+
+```C#
+@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+```
+
+That @page directive is all that is needed to create a routable component (page). Another important directive to take note of is the @code directive. This is how you declare a block of C# code on the razor page. There are a number of directives available in Blazor which we will review further in another post. Some of these other directives are:
+
+    - @inject
+    - @attribute
+    - @ref
+    - @layout
+
 ## Blazor WASM VS Blazor Server
 
 This is a concept best covered in its own post, but it is worth noting that there are two main hosting options when making a Blazor application. Blazor WASM, the option I personally always choose, is the true full client side WebAssembly app. Blazor WASM will still need to work with an API to do things such as CRUD operations with a database, but on it can run on its own hosted as static files too. Blazor Server uses [SignalR](<[https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-6.0](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-6.0)>) and the server will be handling UI updates. That is where I will leave this topic for now, but there is plenty of information in the Microsoft documentation.
