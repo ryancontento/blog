@@ -37,7 +37,7 @@ Again, as the name clearly suggests, these methods are called after a component 
 
 When making an asynchronous call in Blazor, multiple awaited calls will fire simultaneously. Lets look at a quick example.
 
-```csharp
+```
 List<string> _helloWorldList = new();
 
 protected override async Task OnInitializedAsync()
