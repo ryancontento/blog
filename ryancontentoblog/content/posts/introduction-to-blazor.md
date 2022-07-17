@@ -38,7 +38,7 @@ Like most modern front-end web frameworks, Blazor is built around the concept of
 
 Here is a simple counter component which is also routable (see the @page directive at the top of the file):
 
-```C#
+```csharp
 @page "/counter"
 
 <PageTitle>Counter</PageTitle>
